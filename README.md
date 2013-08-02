@@ -10,8 +10,10 @@ Battlefield Pla4Free RCON Class developed by Ronny 'roennel' Gysin. Maintained b
 Add `"piqus/bfp4f-rcon": "dev-master"` into `your `composer.json` require
 
 ```js
-"require": {
-  "piqus/bfp4f-rcon": "*"
+{
+  "require": {
+    "piqus/bfp4f-rcon": "*"
+  }
 }
 ```
 
