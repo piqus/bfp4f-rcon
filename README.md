@@ -72,7 +72,7 @@ if ($cn !== 0) {
     $err = "E: Game server {$srv['srv_name']} is not responding;".PHP_EOL.
            "E: Invalid credentials or server is down;".PHP_EOL.
            "E: $cs ($cn)" . PHP_EOL;
-    error.log($err);
+    error_log($err);
     echo($err);
     exit(1);
 }
