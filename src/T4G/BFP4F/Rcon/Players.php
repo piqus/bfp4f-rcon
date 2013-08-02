@@ -1,0 +1,133 @@
+<?php
+
+/**
+ * Battlefield Play4Free RCON Players Sub-Class
+ * Provides Player based Methods
+ * 
+ * This Package is based on 'bf2php' from 'jamie.rfurness@gmail.com' (http://code.google.com/p/bf2php/)
+ * 
+ * Requires PHP 5.3 or greater
+ * 
+ * @author Ronny 'roennel' Gysin <roennel@alchemical.cc>
+ * @copyright (c) 2012 Ronny Gysin / 2009 Jamie Furness
+ * @license GPL v3 (http://www.gnu.org/licenses/gpl-3.0.html)
+ * @version 0.3.3-beta
+ * @package T4G.BFP4F
+ */
+
+namespace T4G\BFP4F\Rcon;
+
+class Players
+{
+	/**
+	 * Fetches Player Info from Server
+	 * @return array
+	 */
+	public function fetch()
+	{
+		$data = Base::query('bf2cc pl');
+		
+		$spl = explode("\r", $data);
+		
+		$vars = 47; // Total Amount of Variables to parse for each Soldier
+
+		$chunks = array_chunk($spl, $vars);
+
+		$soldiers = array();
+		
+		for($i=0,$c=count($chunks[0]);$i<$c;$i++)
+		{
+			$soldiers[$i] = new \stdClass;
+		}
+		
+		$i = 0;
+
+		$ch = array();
+
+		for($b=0,$c=count($spl);$b<$c;$b++)
+		{
+			$ch[$b] = explode("\t", $spl[$b]);
+		}
+		
+		foreach($ch as $item)
+		{
+			$current = &$soldiers[$i];
+			
+			$current->index = @$item[0];
+			$current->name = @$item[1];
+			$current->team = @$item[2];
+			$current->ping = @$item[3];
+			$current->connected = @$item[4];
+			$current->valid =@ $item[5];
+			$current->remote = @$item[6];
+			$current->ai = @$item[7];
+			$current->alive = @$item[8];
+			$current->manDown = @$item[9];
+			$current->profileId = @$item[10];
+			$current->flagHolder = @$item[11];
+			$current->suicide = @$item[12];
+			$current->timeToSpawn = @$item[13];
+			$current->squadId = @$item[14];
+			$current->squadLeader = @$item[15];
+			$current->commander = @$item[16];
+			$current->spawnGroup = @$item[17];
+			$current->ip = @$item[18];
+			$current->damageAssists = @$item[19];
+			$current->passengerAssists = @$item[20];
+			$current->targetAssists = @$item[21];
+			$current->revives = @$item[22];
+			$current->teamDamages = @$item[23];
+			$current->teamVehicleDamages = @$item[24];
+			$current->cpCaptures = @$item[25];
+			$current->cpDefends = @$item[26];
+			$current->cpAssists = @$item[27];
+			$current->cpNeutralizes = @$item[28];
+			$current->cpNeutralizeAssists = @$item[29];
+			$current->suicides = @$item[30];
+			$current->kills = @$item[31];
+			$current->tk = @$item[32];
+			//$current-vehicleType = @$item[33];
+			$current->kit = @$item[34];
+			$current->time = @$item[35];
+			$current->deaths = @$item[36];
+			$current->score = @$item[37];
+			$current->vehicleName = @$item[38];
+			$current->level = @$item[39];
+			$current->position = @$item[40];
+			//$current->idle = @$item[41];
+			$current->cdKeyHash = @$item[42];
+			//$current->tkPunished = @$item[43];
+			//$current->tkTimesPunished = @$item[44];
+			//$current->tkTimesForgiven = @$item[45];
+			$current->vip = @$item[46];
+			$current->nucleusId = @$item[47];
+			
+			$i++;
+		}
+		
+		return $soldiers;
+	}
+	
+	/**
+	 * Kicks a Player from Server
+	 * @param string|int $playerId
+	 * @param string $reason = null
+	 * @return void
+	 */
+	public function kick($playerId, $reason=null)
+	{
+		Base::query("kick \"{$playerId}\" \"{$reason}\"");
+	}
+	
+	/**
+	 * Bans a Player from Server
+	 * @param string|int $playerId
+	 * @param int $time
+	 * @param string $reason = null
+	 * @return void
+	 */
+	public function ban($playerId, $time, $reason=null)
+	{
+		Base::query("ban {$playerId} {$time} \"{$reason}\"");
+	}
+}
