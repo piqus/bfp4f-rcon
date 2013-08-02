@@ -2,7 +2,7 @@
     "name": "piqus/bfp4f-rcon",
     "description": "Battlefield Pla4Free RCON Class developed by Ronny 'roennel' Gysin with some improvements. Maintained by 'piqus'.",
     "keywords": ["bfp4f", "rcon", "php"],
-    "license": "MIT",
+    "license": "GNU GPL v3",
     "authors": [
         {
             "name": "Ronny 'roennel' Gysin",
