@@ -12,7 +12,7 @@ Add `"piqus/bfp4f-rcon": "dev-master"` into `your `composer.json` require
 ```js
 {
   "require": {
-    "piqus/bfp4f-rcon": "*"
+    "piqus/bfp4f-rcon": "dev-master"
   }
 }
 ```
