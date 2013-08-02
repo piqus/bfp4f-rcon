@@ -4,7 +4,9 @@ namespace T4G\BFP4F\Rcon;
 class Support
 {
     /**
-     * Data stores information about weapons: id, name, required level to buy without unlocking.
+     * $data
+     * Stores information about weapons: id, name, required level to buy without unlocking.
+     * 
      * @var array
      */
     public $data = array (            
@@ -131,7 +133,19 @@ class Support
      */
     public function weaponGetName($weaponId)
     {
+        return $this->$data[$weaponId]['name'];
+    }
 
-        return $this->$data[$weaponId];
+    /**
+     * Get Required Level to buy this Weapon without unlocking.
+     *
+     * @param int $weaponId WeaponID
+     * 
+     * @access public
+     * @return stdClass JSON
+     */
+    public function weaponGetReqLvl($weaponId)
+    {
+        return $this->$data[$weaponId]['required_lvl'];
     }
 }
