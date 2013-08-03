@@ -133,7 +133,7 @@ class Support
      */
     public function weaponGetName($weaponId)
     {
-        return $this->$data[$weaponId]['name'];
+        return $this->data[$weaponId]['name'];
     }
 
     /**
@@ -146,6 +146,6 @@ class Support
      */
     public function weaponGetReqLvl($weaponId)
     {
-        return $this->$data[$weaponId]['required_lvl'];
+        return $this->data[$weaponId]['required_lvl'];
     }
 }
