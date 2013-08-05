@@ -263,7 +263,7 @@ class Server
 	 */
 	public function setCrossHair($enabled = true)
 	{
-		$data = Base::query('vars.crossHair ' . ((boolean)$enabled);
+		$data = Base::query('vars.crossHair ' . ((boolean)$enabled));
 		return $data;
 	}
 
