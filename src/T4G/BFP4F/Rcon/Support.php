@@ -9,7 +9,8 @@ class Support
      * 
      * @var array
      */
-    public $data = array (            
+    public $data = array (
+        // Weapons
         3000 => array('name' => '870 Combat', 'required_lvl' => 4),
         3001 => array('name' => 'M16A2', 'required_lvl' => 12),
         3002 => array('name' => '870 Combat BF3 Edition', 'required_lvl' => 0),
@@ -120,7 +121,10 @@ class Support
         3128 => array('name' => 'PECHENEG', 'required_lvl' => 27),
         3129 => array('name' => 'G53', 'required_lvl' => 27),
         3130 => array('name' => 'MK3A1', 'required_lvl' => 27),
-        3131 => array('name' => '93R', 'required_lvl' => 27),
+        3131 => array('name' => '93R', 'required_lvl' => 27),        
+        // Gadgets
+        3131 => array('name' => '93R', 'required_lvl' => 27),  
+        3131 => array('name' => '93R', 'required_lvl' => 27),  
     );
 
     /**
