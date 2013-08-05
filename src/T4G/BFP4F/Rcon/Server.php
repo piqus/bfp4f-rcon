@@ -55,7 +55,8 @@ class Server
 	 */
 	public function setAdminPassword($password = "")
 	{
-		$data = Base::query('vars.admin Password ' . ((string)$password));
+		$data = Base::query('admin.adminPassword ' . ((string)$password));
+		// $data = Base::query('vars.adminPassword ' . ((string)$password));
 		return $data;
 	}
 
@@ -69,7 +70,8 @@ class Server
 	 */
 	public function setGamePassword($password = "")
 	{
-		$data = Base::query('vars.gamePassword ' . ((string)$password));
+		$data = Base::query('admin.gamePassword ' . ((string)$password));
+		// $data = Base::query('vars.gamePassword ' . ((string)$password));
 		return $data;
 	}
 
@@ -83,7 +85,8 @@ class Server
 	 */
 	public function setPunkBuster($enabled = false)
 	{
-		$data = Base::query('vars.punkBuster ' . ((bool)$enabled));
+		$data = Base::query('admin.punkBuster ' . ((bool)$enabled));
+		// $data = Base::query('vars.punkBuster ' . ((bool)$enabled));
 		return $data;
 	}
 
@@ -98,7 +101,8 @@ class Server
 	 */
 	public function setHardCore($enabled = false)
 	{
-		$data = Base::query('vars.hardCore ' . ((bool)$enabled));
+		$data = Base::query('admin.hardCore ' . ((bool)$enabled));
+		// $data = Base::query('vars.hardCore ' . ((bool)$enabled));
 		return $data;
 	}
 
@@ -112,7 +116,8 @@ class Server
 	 */
 	public function setRanked($enabled = true)
 	{
-		$data = Base::query('vars.ranked ' . ((bool)$enabled));
+		$data = Base::query('admin.ranked ' . ((bool)$enabled));
+		// $data = Base::query('vars.ranked ' . ((bool)$enabled));
 		return $data;
 	}
 
@@ -126,7 +131,8 @@ class Server
 	 */
 	public function setTeamBalance($rank = -1)
 	{
-		$data = Base::query('vars.rankLimit ' . ((int)$rank));
+		$data = Base::query('admin.rankLimit ' . ((int)$rank));
+		// $data = Base::query('vars.rankLimit ' . ((int)$rank));
 		return $data;
 	}
 
@@ -140,7 +146,8 @@ class Server
 	 */
 	public function setTeamBalance($enabled = false)
 	{
-		$data = Base::query('vars.teamBalance ' . ((bool)$enabled));
+		$data = Base::query('admin.teamBalance ' . ((bool)$enabled));
+		// $data = Base::query('vars.teamBalance ' . ((bool)$enabled));
 		return $data;
 	}
 
@@ -155,7 +162,8 @@ class Server
 	 */
 	public function setMaxPlayerLimit($enabled = false)
 	{
-		$data = Base::query('vars.friendlyFire ' . ((bool)$enabled));
+		$data = Base::query('admin.friendlyFire ' . ((bool)$enabled));
+		// $data = Base::query('vars.friendlyFire ' . ((bool)$enabled));
 		return $data;
 	}
 
@@ -167,7 +175,8 @@ class Server
 	 */
 	public function setMaxPlayerLimit()
 	{
-		$data = Base::query('vars.currentPlayerLimit');
+		$data = Base::query('admin.currentPlayerLimit');
+		// $data = Base::query('vars.currentPlayerLimit');
 		return $data;
 	}
 
@@ -180,7 +189,8 @@ class Server
 	 */
 	public function setMaxPlayerLimit()
 	{
-		$data = Base::query('vars.maxPlayerLimit');
+		$data = Base::query('admin.maxPlayerLimit');
+		// $data = Base::query('vars.maxPlayerLimit');
 		return $data;
 	}
 
@@ -194,7 +204,8 @@ class Server
 	 */
 	public function setPlayerLimit($numOfPlayers = 32)
 	{
-		$data = Base::query('vars.playerLimit ' . ((int) $numOfPlayers));
+		$data = Base::query('admin.playerLimit ' . ((int) $numOfPlayers));
+		// $data = Base::query('vars.playerLimit ' . ((int) $numOfPlayers));
 		return $data;
 	}
 
@@ -208,6 +219,7 @@ class Server
 	public function setBannerUrl($bannerUrl = "")
 	{
 		$data = Base::query('admin.bannerUrl ' . ((string) $bannerUrl));
+		// $data = Base::query('vars.bannerUrl ' . ((string) $bannerUrl));
 		return $data;
 	}
 
@@ -222,6 +234,7 @@ class Server
 	public function setServerDescription($description = "")
 	{
 		$data = Base::query('admin.serverDescription ' . ((string) $description));
+		// $data = Base::query('vars.serverDescription ' . ((string) $description));
 		return $data;
 	}
 
@@ -235,7 +248,8 @@ class Server
 	 */
 	public function setKillCam($enabled = true)
 	{
-		$data = Base::query('vars.killCam ' . ((boolean)$enabled));
+		$data = Base::query('admin.killCam ' . ((boolean)$enabled));
+		// $data = Base::query('vars.killCam ' . ((boolean)$enabled));
 		return $data;
 	}
 
@@ -249,7 +263,8 @@ class Server
 	 */
 	public function setMiniMap($enabled = true)
 	{
-		$data = Base::query('vars.miniMap ' . ((boolean)$enabled));
+		$data = Base::query('admin.miniMap ' . ((boolean)$enabled));
+		// $data = Base::query('vars.miniMap ' . ((boolean)$enabled));
 		return $data;
 	}
 
@@ -263,7 +278,8 @@ class Server
 	 */
 	public function setCrossHair($enabled = true)
 	{
-		$data = Base::query('vars.crossHair ' . ((boolean)$enabled));
+		$data = Base::query('admin.crossHair ' . ((boolean)$enabled));
+		// $data = Base::query('vars.crossHair ' . ((boolean)$enabled));
 		return $data;
 	}
 
@@ -276,7 +292,8 @@ class Server
 	 */
 	public function set3dSpotting($enabled = true)
 	{
-		$data = Base::query('vars.3dSpotting ' . ((boolean)$enabled));
+		$data = Base::query('admin.3dSpotting ' . ((boolean)$enabled));
+		// $data = Base::query('vars.3dSpotting ' . ((boolean)$enabled));
 		return $data;
 	}
 
@@ -289,7 +306,8 @@ class Server
 	 */
 	public function setMiniMapSpotting($enabled = true)
 	{
-		$data = Base::query('vars.miniMapSpotting ' . ((boolean)$enabled));
+		$data = Base::query('admin.miniMapSpotting ' . ((boolean)$enabled));
+		// $data = Base::query('vars.miniMapSpotting ' . ((boolean)$enabled));
 		return $data;
 	}
 
@@ -302,7 +320,8 @@ class Server
 	 */
 	public function setThirdPerson($enabled = true)
 	{
-		$data = Base::query('vars.thirdPersonVehicleCameras ' . ((boolean)$enabled));
+		$data = Base::query('admin.thirdPersonVehicleCameras ' . ((boolean)$enabled));
+		// $data = Base::query('vars.thirdPersonVehicleCameras ' . ((boolean)$enabled));
 		return $data;
 	}
 }
