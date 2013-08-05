@@ -302,7 +302,7 @@ class Server
 	 */
 	public function setThirdPerson($enabled = true)
 	{
-		$data = Base::query('vars.thirdPersonVehicleCameras ' . ((boolean)$enabled);
+		$data = Base::query('vars.thirdPersonVehicleCameras ' . ((boolean)$enabled));
 		return $data;
 	}
 }
