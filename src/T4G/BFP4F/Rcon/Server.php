@@ -46,6 +46,65 @@ class Server
 	}
 
 	/**
+	 * Switch to next level
+	 *
+	 * @return 
+	 */
+	public function skipToNextMap()
+	{
+		$data = Base::query('admin.runNextLevel');
+		return $data;
+	}
+
+	/**
+	 * Return current level name
+	 *
+	 * @return 
+	 */
+	public function currentMap()
+	{
+		$data = Base::query('admin.currentLevel');
+		return $data;
+	}
+
+	/**
+	 * Set name of next level to be run to <name>
+	 *
+	 * @param string $map_name
+	 *
+	 * @return 
+	 */
+	public function skipTotMap($map_name = "")
+	{
+		$data = Base::query('admin.nextLevel' . ((string)$map_name));
+		return $data;
+	}
+
+	/**
+	 * End current round, and restart with the same map
+	 *
+	 * @return 
+	 */
+	public function restartMap()
+	{
+		$data = Base::query('admin.restartMap');
+		return $data;
+	}
+
+	/**
+	 * Get the play lists for the server
+	 *
+	 * @param string $name (optional) Get the current play list for the server
+	 *
+	 * @return 
+	 */
+	public function getPlaylist($name)
+	{
+		$data = Base::query('admin.getPlaylist');
+		return $data;
+	}
+
+	/**
 	 * Leftover from BFBC2
 	 * Set the admin password for the server, use it with an empty string("") to rese
 	 *
