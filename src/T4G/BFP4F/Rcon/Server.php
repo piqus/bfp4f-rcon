@@ -74,7 +74,7 @@ class Server
 	 *
 	 * @return 
 	 */
-	public function skipTotMap($map_name = "")
+	public function skipToMap($map_name = "")
 	{
 		$data = Base::query('admin.nextLevel' . ((string)$map_name));
 		return $data;
@@ -188,7 +188,7 @@ class Server
 	 *
 	 * @return 
 	 */
-	public function setTeamBalance($rank = -1)
+	public function setRankLimit($rank = -1)
 	{
 		$data = Base::query('admin.rankLimit ' . ((int)$rank));
 		// $data = Base::query('vars.rankLimit ' . ((int)$rank));
@@ -219,7 +219,7 @@ class Server
 	 *
 	 * @return
 	 */
-	public function setMaxPlayerLimit($enabled = false)
+	public function setFriendlyFire($enabled = false)
 	{
 		$data = Base::query('admin.friendlyFire ' . ((bool)$enabled));
 		// $data = Base::query('vars.friendlyFire ' . ((bool)$enabled));
@@ -232,7 +232,7 @@ class Server
 	 *
 	 * @return This value is computed from all the different player limits in effect at any   given moment
 	 */
-	public function setMaxPlayerLimit()
+	public function setCurrentPlayerLimit()
 	{
 		$data = Base::query('admin.currentPlayerLimit');
 		// $data = Base::query('vars.currentPlayerLimit');
