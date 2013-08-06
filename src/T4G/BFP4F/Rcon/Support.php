@@ -4,12 +4,22 @@ namespace T4G\BFP4F\Rcon;
 class Support
 {
     /**
-     * $data
+     * $weapons
      * Stores information about weapons: id, name, required level to buy without unlocking.
      * 
      * @var array
      */
-    public $data = array (
+    public $weapons = array (
+        // Gadgets
+        2005 => array('name' => 'Grenade'),
+        2025 => array('name' => 'Mortar Strike'),
+        2030 => array('name' => 'Defibrilator'),
+        2034 => array('name' => 'C4'),
+        2048 => array('name' => 'Claymore'),
+        2054 => array('name' => 'RPG'),
+        2051 => array('name' => 'XM-25'),
+        2046 => array('name' => 'Mine'),
+        
         // Weapons
         3000 => array('name' => '870 Combat', 'required_lvl' => 4),
         3001 => array('name' => 'M16A2', 'required_lvl' => 12),
@@ -143,8 +153,94 @@ class Support
         8000 => array('name' => 'Field Bandage', 'required_lvl' => 0),
         8002 => array('name' => 'Adrenaline Shot Dart', 'required_lvl' => 0),
         8003 => array('name' => 'Advanced Adrenaline Shot', 'required_lvl' => 0),
-        8004 => array('name' => 'Combat Bandage', 'required_lvl' => 0),
-        
+        8004 => array('name' => 'Combat Bandage', 'required_lvl' => 0)
+    );
+    
+    /**
+     * $gameModes
+     * Stores information about Game Modes: id, name
+     * 
+     * @var array
+     */
+    public $gameModes = array (
+        0 => 'TDM',
+        1 => 'HOTH',
+        2 => 'TUT',
+        3 => 'CQ',
+        4 => 'Assault',
+        5 => 'Rush'   
+    );
+    
+    /**
+     * $vehicles
+     * Stores information about Vehicles: id, name
+     * 
+     * @var array
+     */
+    public $vehicles = array (
+        1 => 'Jeep',
+        2 => 'Tank',
+        3 => 'APC',
+        4 => 'Jet',
+        5 => 'Attack Heli',
+        6 => 'Scout Heli',
+        7 => 'Transport Heli',
+        8 => 'Boat',
+        9 => 'AA',
+        10 => 'AT',
+        11 => 'Parachute',
+        12 => 'Soldier',
+        13 => 'Plane',
+        14 => 'Static',
+        15 => '??'  
+    );
+    
+    /**
+     * $events
+     * Stores information about events: id, name
+     * 
+     * @var array
+     */
+    public $events = array (
+        12 => 'Road Kill',
+        19 => 'Headshot',
+        24 => 'Double Kill',
+        25 => 'Triple Kill',
+        26 => 'Multi Kill',
+        27 => 'Flag Defense',
+        28 => 'Flag Offense',
+        29 => 'Flag Capture',
+        30 => 'Driver Kill Assist',
+        31 => 'Kill Assist',
+        32 => 'Critical Kill Assist',
+        33 => 'Revive',
+        34 => 'Save Kill',
+        35 => 'Vehicle Repair',
+        36 => 'Ranged Kill',
+        37 => 'Kill',
+        38 => 'Destroyed Vehicle',
+        39 => 'Suicide',
+        40 => 'Tracer Kill Assist',
+        41 => 'Ammo Supply',
+        42 => 'Health Supply',
+        43 => 'Level Up',
+        44 => 'Level Up Intro',
+        45 => 'Tracer Attach',
+        46 => 'Knife Kill',
+        47 => 'Revenge',
+        48 => 'Passenger Kill Assist',
+        49 => 'Spotter Bonus',
+        50 => 'Reinforcements',
+        51 => 'Killed by Throwback',
+        52 => 'Motion Sensor Assist',
+        53 => 'Rush Disarmed MCOM',
+        54 => 'Rush Destroyed MCOM',
+        55 => 'Rush Kill Arming Player',
+        56 => 'Rush Kill Disarming Player',
+        57 => 'Rush Defend Arming Player',
+        58 => 'Rush Defend Disarming Player',
+        59 => 'Rush Armed MCOM',
+        60 => 'Medic Flare Spawn'
     );
 
     /**
@@ -157,7 +253,7 @@ class Support
      */
     public function weaponGetName($weaponId)
     {
-        return $this->data[$weaponId]['name'];
+        return $this->weapons[$weaponId]['name'];
     }
 
     /**
@@ -170,6 +266,6 @@ class Support
      */
     public function weaponGetReqLvl($weaponId)
     {
-        return $this->data[$weaponId]['required_lvl'];
+        return $this->weapons[$weaponId]['required_lvl'];
     }
 }
