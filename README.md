@@ -7,7 +7,7 @@ Battlefield Pla4Free RCON Class developed by Ronny 'roennel' Gysin. Maintained b
 
 ### Install it via Composer ###
 
-Add `"piqus/bfp4f-rcon": "dev-master"` into `your `composer.json` require
+Add `"piqus/bfp4f-rcon": "dev-master"` into your `composer.json` dependencies.
 
 ```js
 {
@@ -17,7 +17,7 @@ Add `"piqus/bfp4f-rcon": "dev-master"` into `your `composer.json` require
 }
 ```
 
-then add link to your composer autoloadder in php script:
+then add link to your composer autoloader in php script:
 
 ```php
 /* Load Classes 
