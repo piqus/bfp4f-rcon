@@ -1,4 +1,17 @@
 <?php
+
+/**
+ * Battlefield Play4Free Support class.
+ * 
+ * Additional class for decoding player stats from BF P4F website.
+ * 
+ * @package  T4G\BFP4F
+ * @author   piqus <ovirendo@gmail.com>
+ * @license  GPL v3 (http://www.gnu.org/licenses/gpl-3.0.html)
+ * @version  0.3.3
+ * @link     https://github.com/piqus/bfp4f-rcon
+ */
+
 namespace T4G\BFP4F\Rcon;
 
 class Support

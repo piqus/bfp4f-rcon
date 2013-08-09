@@ -10,12 +10,12 @@
  * 
  * Modified by piqus.
  * 
- * @author Ronny 'roennel' Gysin <roennel@alchemical.cc> 
- * @author piqus <ovirendo@gmail.com>
+ * @author    Ronny 'roennel' Gysin <roennel@alchemical.cc> 
+ * @author    piqus <ovirendo@gmail.com>
  * @copyright (c) 2012 Ronny Gysin / 2009 Jamie Furness
- * @license GPL v3 (http://www.gnu.org/licenses/gpl-3.0.html)
- * @version 0.3.3-beta
- * @package T4G\BFP4F
+ * @license   GPL v3 (http://www.gnu.org/licenses/gpl-3.0.html)
+ * @version   0.3.3-beta
+ * @package   T4G\BFP4F
  */
 
 namespace T4G\BFP4F\Rcon;

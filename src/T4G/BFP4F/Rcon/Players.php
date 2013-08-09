@@ -8,11 +8,11 @@
  * 
  * Requires PHP 5.3 or greater
  * 
- * @author Ronny 'roennel' Gysin <roennel@alchemical.cc>
+ * @package   T4G\BFP4F
+ * @author    Ronny 'roennel' Gysin <roennel@alchemical.cc>
  * @copyright (c) 2012 Ronny Gysin / 2009 Jamie Furness
- * @license GPL v3 (http://www.gnu.org/licenses/gpl-3.0.html)
- * @version 0.3.3-beta
- * @package T4G.BFP4F
+ * @license   GPL v3 (http://www.gnu.org/licenses/gpl-3.0.html)
+ * @version   0.3.3-beta
  */
 
 namespace T4G\BFP4F\Rcon;

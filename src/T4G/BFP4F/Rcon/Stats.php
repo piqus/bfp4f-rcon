@@ -1,13 +1,13 @@
 <?php
+
 /**
  * Battlefield Play4Free Stats viewer.
  *
- * As above. Uses JSON notation.
+ * Provides methods to retrieve player stats and decode JSON to PHP object.
  * 
- * @category BFP4F
- * @package  T4G
+ * @package  T4G\BFP4F
  * @author   piqus <ovirendo@gmail.com>
- * @license  MIT http://opensource.org/licenses/MIT
+ * @license  GPL v3 (http://www.gnu.org/licenses/gpl-3.0.html)
  * @version  0.3.3
  * @link     https://github.com/piqus/bfp4f-rcon
  */
