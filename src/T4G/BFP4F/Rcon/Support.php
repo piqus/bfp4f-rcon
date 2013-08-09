@@ -72,8 +72,8 @@ class Support
         3127 => array('name' => 'L85A2',                    'required_lvl' => 27),
         3001 => array('name' => 'M16A2',                    'required_lvl' => 12),
         3062 => array('name' => 'M4A1',                     'required_lvl' => 18),
-        3011 => array('name' => 'SCARL',                    'required_lvl' => 6),
-        3046 => array('name' => 'STG77AUG',                 'required_lvl' => 9),
+        3011 => array('name' => 'SCARL',                    'required_lvl' => 6 ),
+        3046 => array('name' => 'STG77AUG',                 'required_lvl' => 9 ),
         3075 => array('name' => 'XM8',                      'required_lvl' => 22),
 
         // Weapons::Engineer [SMG]
@@ -86,8 +86,8 @@ class Support
         3017 => array('name' => 'P90',                      'required_lvl' => 3 ),
         3117 => array('name' => 'PDWR',                     'required_lvl' => 22),
         3112 => array('name' => 'PP-19',                    'required_lvl' => 24),
-        3018 => array('name' => 'PP2000',                   'required_lvl' => 0),
-        3012 => array('name' => 'UMP',                      'required_lvl' => 6),
+        3018 => array('name' => 'PP2000',                   'required_lvl' => 0 ),
+        3012 => array('name' => 'UMP',                      'required_lvl' => 6 ),
         3064 => array('name' => 'UZI',                      'required_lvl' => 16),
         3078 => array('name' => 'XM8C',                     'required_lvl' => 15),
 
@@ -97,12 +97,12 @@ class Support
         3003 => array('name' => 'M249 SAW',                 'required_lvl' => 20),
         3116 => array('name' => 'M27IAR',                   'required_lvl' => 30),
         3015 => array('name' => 'M60',                      'required_lvl' => 12),
-        3013 => array('name' => 'MG3',                      'required_lvl' => 0),
+        3013 => array('name' => 'MG3',                      'required_lvl' => 0 ),
         3048 => array('name' => 'MG36',                     'required_lvl' => 18),
         3128 => array('name' => 'PECHENEG',                 'required_lvl' => 27),
         3014 => array('name' => 'PKM',                      'required_lvl' => 3 ),
         3121 => array('name' => 'QBB-95',                   'required_lvl' => 21),
-        3068 => array('name' => 'QJY-88',                   'required_lvl' => 9),
+        3068 => array('name' => 'QJY-88',                   'required_lvl' => 9 ),
         3113 => array('name' => 'RPK-74M',                  'required_lvl' => 22),
         3076 => array('name' => 'XM8AR',                    'required_lvl' => 15),
 
@@ -110,7 +110,7 @@ class Support
         3077 => array('name' => 'GOL',                      'required_lvl' => 18),
         3111 => array('name' => 'L96',                      'required_lvl' => 24),
         3066 => array('name' => 'M110',                     'required_lvl' => 16),
-        3065 => array('name' => 'M14 EBR',                  'required_lvl' => 9),
+        3065 => array('name' => 'M14 EBR',                  'required_lvl' => 9 ),
         3024 => array('name' => 'M24',                      'required_lvl' => 12),
         3126 => array('name' => 'M82A3',                    'required_lvl' => 27),
         3022 => array('name' => 'M95',                      'required_lvl' => 20),
@@ -122,7 +122,7 @@ class Support
 
         // Weapons::Shotguns
         3000 => array('name' => '870 Combat',               'required_lvl' => 4 ),
-        3002 => array('name' => '870 Combat BF3 Edition',   'required_lvl' => 0),
+        3002 => array('name' => '870 Combat BF3 Edition',   'required_lvl' => 0 ),
         3130 => array('name' => 'MK3A1',                    'required_lvl' => 27),
         3025 => array('name' => 'SAIGA',                    'required_lvl' => 7 ),
         3008 => array('name' => 'SPAS-12',                  'required_lvl' => 10),
@@ -134,7 +134,7 @@ class Support
         3029 => array('name' => 'USAS-12 Veteran',          'required_lvl' => 21),
 
         // Weapons::Secondary guns
-        3131 => array('name' => '93R',                      'required_lvl' => 0),
+        3131 => array('name' => '93R',                      'required_lvl' => 0 ),
         3115 => array('name' => 'Deagle 50',                'required_lvl' => 24),
         3125 => array('name' => 'EASY-Piece',               'required_lvl' => 0 ),
         3019 => array('name' => 'M1911',                    'required_lvl' => 11),
@@ -312,14 +312,14 @@ class Support
     }
 
     /**
-     * Parse mode ID to name (GameMapModeStats).
+     * Parse mode ID to name (GameModeMapStats, GameModeStats).
      *
      * @access public
      * 
      * @param int $modeId Mode ID
      * @uses $gameModes Collection with mode IDs and names
      * 
-     * @return string Vehicle name
+     * @return string Game mode name
      */
     public function modeGetName($modeId)
     {
