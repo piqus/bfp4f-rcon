@@ -2,7 +2,7 @@
 /**
  * Battlefield Play4Free Stats viewer.
  *
- * As above. uses JSON notation.
+ * As above. Uses JSON notation.
  * 
  * @category BFP4F
  * @package  T4G
@@ -17,14 +17,18 @@ namespace T4G\BFP4F\Rcon;
 class Stats
 {
     /**
+     * $_profileID
      * ProfileID or also known as nucluesId
+     * 
      * @access private
      * @var integer 10 chars long
      */
     private $_profileID = 0;
 
     /**
-     * SoldieID or cdKeyHash
+     * $_soldierID
+     * SoldierID or cdKeyHash
+     * 
      * @access private
      * @var integer usually 9 chars long
      */    
@@ -46,7 +50,7 @@ class Stats
      * Retrieve User Info data
      *
      * @access public
-     * @return stdClass JSON
+     * @return object JSON
      */
     public function retrieveUserInfo()
     {
@@ -59,7 +63,7 @@ class Stats
      * Retrieve Soldiers
      *
      * @access public
-     * @return stdClass JSON
+     * @return object JSON
      */
     public function retrieveSoldiers()
     {
@@ -72,7 +76,7 @@ class Stats
      * Retrieve Core Stats
      *
      * @access public
-     * @return stdClass JSON
+     * @return object JSON
      */
     public function retrieveCoreStats ()
     {
@@ -85,7 +89,7 @@ class Stats
      * Retrieve Bad Player Stats
      *
      * @access public
-     * @return stdClass JSON
+     * @return object JSON
      */
     public function retrieveBadPlayerStats ()
     {
@@ -98,7 +102,7 @@ class Stats
      * Retrieve Vehicle Stats
      *
      * @access public
-     * @return stdClass JSON
+     * @return object JSON
      */
     public function retrieveVehicleStats ()
     {
@@ -111,7 +115,7 @@ class Stats
      * Retrieve Map Stats
      *
      * @access public
-     * @return stdClass JSON
+     * @return object JSON
      */
     public function retrieveMapStats ()
     {
@@ -124,7 +128,7 @@ class Stats
      * Retrieve Game Mode Map Stats
      *
      * @access public
-     * @return stdClass JSON
+     * @return object JSON
      */
     public function retrieveGameModeMapStats ()
     {
@@ -137,7 +141,7 @@ class Stats
      * Retrieve Weapon Stats
      *
      * @access public
-     * @return stdClass JSON
+     * @return object JSON
      */
     public function retrieveWeaponStats ()
     {
@@ -150,7 +154,7 @@ class Stats
      * Retrieve Game Mode Stats
      *
      * @access public
-     * @return stdClass JSON
+     * @return object JSON
      */
     public function retrieveGameModeStats ()
     {
@@ -163,7 +167,7 @@ class Stats
      * Retrieve Rush Map Stats
      *
      * @access public
-     * @return stdClass JSON
+     * @return object JSON
      */
     public function retrieveRushMapStats () 
     {
@@ -176,7 +180,7 @@ class Stats
      * Retrieve Game Event Stats
      *
      * @access public 
-     * @return stdClass JSON
+     * @return object JSON
      */
     public function retrieveGameEventStats ()
     {
@@ -189,7 +193,7 @@ class Stats
      * Retrieve Loadout
      *      
      * @access public
-     * @return stdClass JSON
+     * @return object JSON
      */
     public function retrieveLoadout ()
     {
