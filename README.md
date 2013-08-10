@@ -84,5 +84,5 @@ $rc->init();
 ## Contribution ##
 
 I'd apreciate any help to improve this project. 
-Use `git clone` magic or send me E-Mail/IM me with your changes or sign up on github 
-edit it online by pressing "Edit" button which is available on nav of each file.
+Use `git clone` magic or e-mail/IM me with your changes 
+or sign up on github then edit it online by pressing "Edit".
