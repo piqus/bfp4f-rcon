@@ -115,9 +115,9 @@ class Support
         3126 => array('name' => 'M82A3',                    'required_lvl' => 27),
         3022 => array('name' => 'M95',                      'required_lvl' => 20),
         3045 => array('name' => 'SVU-A',                    'required_lvl' => 6 ),
-        3023 => array('name' => 'SVD',                      'required_lvl' => 3 ),
         3119 => array('name' => 'SKS',                      'required_lvl' => 21),
         3004 => array('name' => 'SV98',                     'required_lvl' => 0 ),
+        3023 => array('name' => 'SVD',                      'required_lvl' => 3 ),        
         3070 => array('name' => 'VSS Vintorez',             'required_lvl' => 15),
 
         // Weapons::Shotguns
