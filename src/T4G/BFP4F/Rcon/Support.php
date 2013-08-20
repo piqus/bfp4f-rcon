@@ -30,6 +30,7 @@ class Support
         3027 => array('name' => 'Knife',                    'required_lvl' => 0 ),//0
         2005 => array('name' => 'Grenade',                  'required_lvl' => 0 ),//2
         2043 => array('name' => 'Satellite Surveillance',   'required_lvl' => 0 ),//12
+        2168 => array('name' => 'Tracer Dart',              'required_lvl' => 0 ),//0
 
         // Gadgets::AdrealineBandages
         8000 => array('name' => 'Adrenaline Shot',          'required_lvl' => 0 ),//0
