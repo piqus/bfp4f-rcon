@@ -1,7 +1,7 @@
 bfp4f-rcon
 ==========
 
-Battlefield Pla4Free RCON Class developed by Ronny 'roennel' Gysin. Maintained by @piqus.
+Battlefield Play4Free RCON Class developed by Ronny 'roennel' Gysin. Maintained by @piqus.
 
 ## Installation ##
 
