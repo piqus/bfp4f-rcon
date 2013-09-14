@@ -76,6 +76,9 @@ class Support
         3011 => array('name' => 'SCARL',                    'required_lvl' => 6 ),
         3046 => array('name' => 'STG77AUG',                 'required_lvl' => 9 ),
         3075 => array('name' => 'XM8',                      'required_lvl' => 22),
+        3132 => array('name' => 'ACWR',                     'required_lvl' => 28),
+        3133 => array('name' => 'A91',                      'required_lvl' => 0), //Not released yet
+        
 
         // Weapons::Engineer [SMG]
         3073 => array('name' => '9A-91',                    'required_lvl' => 9 ),
@@ -91,6 +94,8 @@ class Support
         3012 => array('name' => 'UMP',                      'required_lvl' => 6 ),
         3064 => array('name' => 'UZI',                      'required_lvl' => 16),
         3078 => array('name' => 'XM8C',                     'required_lvl' => 15),
+        3137 => array('name' => 'M5K'                       'required_lvl' => 28),
+        3136 => array('name' => 'MTAR21',                   'required_lvl' => 0), //Not Released yet
 
         // Weapons::Medic [LMG]
         3072 => array('name' => 'FN Minimi Para',           'required_lvl' => 6 ),
@@ -106,6 +111,9 @@ class Support
         3068 => array('name' => 'QJY-88',                   'required_lvl' => 9 ),
         3113 => array('name' => 'RPK-74M',                  'required_lvl' => 22),
         3076 => array('name' => 'XM8AR',                    'required_lvl' => 15),
+        3135 => array('name' => 'L86A2',                    'required_lvl' => 28),
+        3134 => array('name' => 'LSAT',                     'required_lvl' => 0), //Not released yet
+     
 
         // Weapons::Recon [SR]
         3077 => array('name' => 'GOL',                      'required_lvl' => 18),
@@ -120,6 +128,8 @@ class Support
         3004 => array('name' => 'SV98',                     'required_lvl' => 0 ),
         3023 => array('name' => 'SVD',                      'required_lvl' => 3 ),        
         3070 => array('name' => 'VSS Vintorez',             'required_lvl' => 15),
+        3139 => array('name' => 'JNG90',                    'required_lvl' => 28),
+        3138 => array('name' => 'M98B',                     'required_lvl' => 0), //Not released yet
 
         // Weapons::Shotguns
         3000 => array('name' => '870 Combat',               'required_lvl' => 4 ),
