@@ -94,7 +94,7 @@ class Support
         3012 => array('name' => 'UMP',                      'required_lvl' => 6 ),
         3064 => array('name' => 'UZI',                      'required_lvl' => 16),
         3078 => array('name' => 'XM8C',                     'required_lvl' => 15),
-        3137 => array('name' => 'M5K'                       'required_lvl' => 28),
+        3137 => array('name' => 'M5K',                      'required_lvl' => 28),
         3136 => array('name' => 'MTAR21',                   'required_lvl' => 0), //Not Released yet
 
         // Weapons::Medic [LMG]
