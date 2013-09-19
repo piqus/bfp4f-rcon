@@ -101,7 +101,7 @@ class Support
         3072 => array('name' => 'FN Minimi Para',           'required_lvl' => 6 ),
         3063 => array('name' => 'M240B',                    'required_lvl' => 16),
         3003 => array('name' => 'M249 SAW',                 'required_lvl' => 20),
-        3116 => array('name' => 'M27IAR',                   'required_lvl' => 30),
+        3116 => array('name' => 'M27IAR',                   'required_lvl' => 24),
         3015 => array('name' => 'M60',                      'required_lvl' => 12),
         3013 => array('name' => 'MG3',                      'required_lvl' => 0 ),
         3048 => array('name' => 'MG36',                     'required_lvl' => 18),
