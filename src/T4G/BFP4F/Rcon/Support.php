@@ -115,7 +115,7 @@ class Support
         3113 => array('name' => 'RPK-74M', 'required_lvl' => 22),
         3114 => array('name' => 'F2000', 'required_lvl' => 24),
         3115 => array('name' => 'Deagle 50', 'required_lvl' => 24),
-        3116 => array('name' => 'M27IAR', 'required_lvl' => 30),
+        3116 => array('name' => 'M27IAR', 'required_lvl' => 24),
         3117 => array('name' => 'PDWR', 'required_lvl' => 22),
         3118 => array('name' => 'Steel Deagle 50', 'required_lvl' => 0),
         3119 => array('name' => 'SKS', 'required_lvl' => 21),
