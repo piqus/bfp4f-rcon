@@ -12,7 +12,7 @@
  * @author    Ronny 'roennel' Gysin <roennel@alchemical.cc>
  * @copyright (c) 2012 Ronny Gysin / 2009 Jamie Furness
  * @license   GPL v3 (http://www.gnu.org/licenses/gpl-3.0.html)
- * @version   0.3-beta
+ * @version   0.3.4
  */
 
 namespace T4G\BFP4F\Rcon;
@@ -46,50 +46,166 @@ class Server
 	}
 
 	/**
+	 * Changes next (append?) map to declared. 
+	 * rcon::runNextLevel is needed to skip current map.
+	 *
+	 * <ul>
+	 *  <li>Map List
+	 *   <ul>
+	 *    <li>strike_at_karkand</li>
+	 *    <li>gulf_of_oman</li>
+	 *    <li>dalian_plant</li>
+	 *    <li>downtown</li>
+	 *    <li>mashtuur_city</li>
+	 *    <li>trail</li>
+	 *    <li>Dragon_Valley</li>
+	 *    <li>karkand_rush</li>
+	 *    <li>sharqi</li>
+	 *   </ul>
+	 *  </li>
+	 *  <li>Game Types
+	 *   <ul>
+	 *    <li>gpm_sa</li>
+	 *    <li>gpm_rush</li>
+	 *    <li>There are also so unreleased/lefotovers in BFP4F mm/game files.
+	 *   </ul>
+	 *  </li>
+	 * </ul>
+	 *
+	 * @param string $map Map Name
+	 * @param string $gameType Game Type
+	 * @param int $size Size of map (according to max players numb.)
+	 * 
+	 * @return 
+	 */
+	public function changeMap($map, $gameType, $size = null)
+	{
+		return Base::query("map {$map} {$gameType} {$size}");
+	}
+
+	public function changeMapAlt($map, $gameType, $size = null)
+	{
+		return Base::query("exec admin.changemap {$map} {$gameType} {$size}");
+	}	
+
+	/**
+	 * Retrieves position of current map in map rotator
+	 * 0, 1, 2, 3, ...	 
+	 *
+	 * @return int
+	 */
+	public function currentMap()
+	{
+		return Base::query("exec admin.currentLevel");
+	}
+
+	/**
 	 * Switch to next level
 	 *
 	 * @return 
 	 */
 	public function skipToNextMap()
 	{
-		$data = Base::query('admin.runNextLevel');
-		return $data;
+		return Base::query("exec admin.runNextLevel");
+	}
+	
+	/**
+	 * Run next map.
+	 * 
+	 * @return
+	 */
+	public function runNextMap()
+	{
+		return Base::query('newrcon runnextmap');
 	}
 
 	/**
-	 * Return current level name
+	 * Sets number of rounds variable (applies to all maps)
+	 * 
+	 * @param int $num_of_rounds 
+	 */
+	public function setNumOfRounds($num_of_rounds)
+	{
+		return Base::query("exec admin.setNrOfRounds {$num_of_rounds}");
+	}
+	
+	/**
+	 * Jump to <map_[id|name]>?
+	 *
+	 * @param string $map ID of map in map-rotator or name of map
 	 *
 	 * @return 
 	 */
-	public function currentMap()
+	public function skipToMap($map)
 	{
-		$data = Base::query('admin.currentLevel');
-		return $data;
+		return Base::query('exec admin.nextLevel ' . ($map));
 	}
 
 	/**
-	 * Set name of next level to be run to <name>
-	 *
-	 * @param string $map_name
+	 * Set next map using ID of map position in rotator.
+	 * 
+	 * @param int $map_id_in_rotation
 	 *
 	 * @return 
 	 */
-	public function skipToMap($map_name = "")
+	public function setNextMap($map_id_in_rotation = 0)
 	{
-		$data = Base::query('admin.nextLevel' . ((string)$map_name));
-		return $data;
+		return Base::query('newrcon setnextmap' . ((int)$map_id_in_rotation));		
 	}
 
 	/**
-	 * End current round, and restart with the same map
+	 * End current round, and restart with the same map.
 	 *
 	 * @return 
 	 */
 	public function restartMap()
 	{
-		$data = Base::query('admin.restartMap');
+		return Base::query('exec admin.restartMap');
+	}
+
+	/**
+	 * Restart current map using b4fnm.
+	 *
+	 * @return 
+	 */
+	public function restartMapAlt()
+	{
+		return Base::query('b4fnm restartmap');
+	}
+
+	/**
+	 * Returns Help all (modmanager) commands.
+	 *
+	 * Commands are listed in nested view using 
+	 * - "\r\n"
+	 * - "\t"
+	 * - spaces? I haven't noticed
+	 * 
+	 * @return 
+	 */
+	public function getHelp()
+	{
+		return $data = Base::query('help');
+		// return explode("\r\n", $data);
+	}
+
+	/**
+	 * Sets time limit.
+	 * 
+	 * @param int $value
+	 */
+	public function setTimeLimit($value)
+	{
+		Base::query("exec admin.timeLimit {$value}");
+	}
+
+	public function getMaplist($name)
+	{
+		$data = Base::query('maplist');
 		return $data;
 	}
+
+	/*** Leftovers to remove ***/
 
 	/**
 	 * Get the play lists for the server
@@ -100,98 +216,7 @@ class Server
 	 */
 	public function getPlaylist($name)
 	{
-		$data = Base::query('admin.getPlaylist');
-		return $data;
-	}
-
-	/**
-	 * Leftover from BFBC2
-	 * Set the admin password for the server, use it with an empty string("") to rese
-	 *
-	 * @param string $password 
-	 *
-	 * @return 
-	 */
-	public function setAdminPassword($password = "")
-	{
-		$data = Base::query('admin.adminPassword ' . ((string)$password));
-		// $data = Base::query('vars.adminPassword ' . ((string)$password));
-		return $data;
-	}
-
-	/**
-	 * Leftover from BFBC2
-	 * Set the game password for the server, use it with an empty string ("") to reset
-	 *
-	 * @param string $password 
-	 *
-	 * @return 
-	 */
-	public function setGamePassword($password = "")
-	{
-		$data = Base::query('admin.gamePassword ' . ((string)$password));
-		// $data = Base::query('vars.gamePassword ' . ((string)$password));
-		return $data;
-	}
-
-	/**
-	 * Leftover from BFBC2
-	 * Set if the server will use PunkBuster or not
-	 *
-	 * @param boolean $enabled 
-	 *
-	 * @return 
-	 */
-	public function setPunkBuster($enabled = false)
-	{
-		$data = Base::query('admin.punkBuster ' . ((bool)$enabled));
-		// $data = Base::query('vars.punkBuster ' . ((bool)$enabled));
-		return $data;
-	}
-
-	/**
-	 * Leftover from BFBC2
-	 * Set hardcore mode
-	 * Works after map change
-	 *
-	 * @param boolean $enabled 
-	 *
-	 * @return 
-	 */
-	public function setHardCore($enabled = false)
-	{
-		$data = Base::query('admin.hardCore ' . ((bool)$enabled));
-		// $data = Base::query('vars.hardCore ' . ((bool)$enabled));
-		return $data;
-	}
-
-	/**
-	 * Leftover from BFBC2
-	 * Set ranked or not
-	 *
-	 * @param boolean $enabled 
-	 *
-	 * @return 
-	 */
-	public function setRanked($enabled = true)
-	{
-		$data = Base::query('admin.ranked ' . ((bool)$enabled));
-		// $data = Base::query('vars.ranked ' . ((bool)$enabled));
-		return $data;
-	}
-
-	/**
-	 * Leftover from BFBC2
-	 * Says ‘OK’ but still allow higher ranked players to join
-	 *
-	 * @param int $rank Rank. To disable rank limit use -1 as value
-	 *
-	 * @return 
-	 */
-	public function setRankLimit($rank = -1)
-	{
-		$data = Base::query('admin.rankLimit ' . ((int)$rank));
-		// $data = Base::query('vars.rankLimit ' . ((int)$rank));
+		$data = Base::query('exec admin.getPlaylist');
 		return $data;
 	}
 
@@ -205,7 +230,7 @@ class Server
 	 */
 	public function setTeamBalance($enabled = false)
 	{
-		$data = Base::query('admin.teamBalance ' . ((bool)$enabled));
+		$data = Base::query('exec admin.teamBalance ' . ((bool)$enabled));
 		// $data = Base::query('vars.teamBalance ' . ((bool)$enabled));
 		return $data;
 	}
@@ -277,7 +302,7 @@ class Server
 	 */
 	public function setBannerUrl($bannerUrl = "")
 	{
-		$data = Base::query('admin.bannerUrl ' . ((string) $bannerUrl));
+		$data = Base::query('sv.bannerUrl ' . ((string) $bannerUrl));
 		// $data = Base::query('vars.bannerUrl ' . ((string) $bannerUrl));
 		return $data;
 	}
@@ -292,7 +317,7 @@ class Server
 	 */
 	public function setServerDescription($description = "")
 	{
-		$data = Base::query('admin.serverDescription ' . ((string) $description));
+		$data = Base::query('sv.serverDescription ' . ((string) $description));
 		// $data = Base::query('vars.serverDescription ' . ((string) $description));
 		return $data;
 	}
@@ -309,78 +334,6 @@ class Server
 	{
 		$data = Base::query('admin.killCam ' . ((boolean)$enabled));
 		// $data = Base::query('vars.killCam ' . ((boolean)$enabled));
-		return $data;
-	}
-
-	/**
-	 * Leftover from BFBC2
-	 * Set if minimap is enabled. Probably works after map switch.
-	 *
-	 * @param boolean $enabled Enable or Disable Minimap
-	 *
-	 * @return 
-	 */
-	public function setMiniMap($enabled = true)
-	{
-		$data = Base::query('admin.miniMap ' . ((boolean)$enabled));
-		// $data = Base::query('vars.miniMap ' . ((boolean)$enabled));
-		return $data;
-	}
-
-	/**
-	 * Leftover from BFBC2
-	 * Set if crosshair for all weapons is enabled. Probably works after map switch.
-	 *
-	 * @param boolean $enabled Enable or Disable Cross Hair
-	 *
-	 * @return 
-	 */
-	public function setCrossHair($enabled = true)
-	{
-		$data = Base::query('admin.crossHair ' . ((boolean)$enabled));
-		// $data = Base::query('vars.crossHair ' . ((boolean)$enabled));
-		return $data;
-	}
-
-	/**
-	 * Leftover from BFBC2
-	 *
-	 * @param boolean $enabled Enable or Disable 3D Spotting
-	 *
-	 * @return 
-	 */
-	public function set3dSpotting($enabled = true)
-	{
-		$data = Base::query('admin.3dSpotting ' . ((boolean)$enabled));
-		// $data = Base::query('vars.3dSpotting ' . ((boolean)$enabled));
-		return $data;
-	}
-
-	/**
-	 * Leftover from BFBC2
-	 *
-	 * @param boolean $enabled Enable or Disable Map Spotting
-	 *
-	 * @return 
-	 */
-	public function setMiniMapSpotting($enabled = true)
-	{
-		$data = Base::query('admin.miniMapSpotting ' . ((boolean)$enabled));
-		// $data = Base::query('vars.miniMapSpotting ' . ((boolean)$enabled));
-		return $data;
-	}
-
-	/**
-	 * Leftover from BFBC2
-	 *
-	 * @param boolean $enabled Enable or Disable 3rd Person Camera
-	 *
-	 * @return 
-	 */
-	public function setThirdPerson($enabled = true)
-	{
-		$data = Base::query('admin.thirdPersonVehicleCameras ' . ((boolean)$enabled));
-		// $data = Base::query('vars.thirdPersonVehicleCameras ' . ((boolean)$enabled));
 		return $data;
 	}
 }
