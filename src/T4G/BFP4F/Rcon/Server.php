@@ -58,7 +58,7 @@ class Server
 	 *    <li>downtown</li>
 	 *    <li>mashtuur_city</li>
 	 *    <li>trail</li>
-	 *    <li>Dragon_Valley</li>
+	 *    <li>dragon_valley</li>
 	 *    <li>karkand_rush</li>
 	 *    <li>sharqi</li>
 	 *   </ul>
@@ -74,18 +74,23 @@ class Server
 	 *
 	 * @param string $map Map Name
 	 * @param string $gameType Game Type
-	 * @param int $size Size of map (according to max players numb.)
+	 * @param int $size Size of map (according to max players number)
 	 * 
 	 * @return 
 	 */
-	public function changeMap($map, $gameType, $size = null)
+	public function changeMap($map, $gameType, $size = 32)
 	{
 		return Base::query("map {$map} {$gameType} {$size}");
 	}
 
-	public function changeMapAlt($map, $gameType, $size = null)
+	public function changeMapAlt($map, $gameType, $size = 32)
 	{
 		return Base::query("exec admin.changemap {$map} {$gameType} {$size}");
+	}
+
+	public function appendMap($map, $gameType, $size = 32)
+	{
+		return Base::query("exec admin.append {$map} {$gameType} {$size}");
 	}	
 
 	/**
@@ -203,6 +208,21 @@ class Server
 	{
 		$data = Base::query('maplist');
 		return $data;
+	}
+
+	public function pause()
+	{
+		return Base::query('exec gameLogic.pause');
+	}
+
+	public function unpause()
+	{
+		return Base::query('exec gameLogic.unpause');
+	}
+
+	public function togglePause()
+	{
+		return Base::query('exec gameLogic.togglePause');
 	}
 
 	/*** Leftovers to remove ***/

@@ -116,6 +116,11 @@ class Players
 		return Base::query("list");
 	}
 
+	public function listPlayersAlt()
+	{
+		return Base::query("exec admin.listPlayers");
+	}
+
 	/**
 	 * Prints profileid
 	 */
