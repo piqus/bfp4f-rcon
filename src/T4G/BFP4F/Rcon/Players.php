@@ -12,7 +12,7 @@
  * @author    Ronny 'roennel' Gysin <roennel@alchemical.cc>
  * @copyright (c) 2012 Ronny Gysin / 2009 Jamie Furness
  * @license   GPL v3 (http://www.gnu.org/licenses/gpl-3.0.html)
- * @version   0.3.3-beta
+ * @version   0.3.4
  */
 
 namespace T4G\BFP4F\Rcon;
@@ -107,6 +107,30 @@ class Players
 		
 		return $soldiers;
 	}
+
+	/**
+	 * List the players on the server
+	 */
+	public function listPlayers()
+	{
+		return Base::query("list");
+	}
+
+	/**
+	 * Prints profileid
+	 */
+	public function getProfileId(player_index)
+	{
+		return Base::query("profileid {$player_index}");
+	}
+
+	/**
+	 * Print a list of players and their profileid's
+	 */
+	public function getProfileIds()
+	{
+		return Base::query("profileids");
+	}
 	
 	/**
 	 * Kicks a Player from Server
@@ -130,6 +154,98 @@ class Players
 	{
 		Base::query("ban {$playerId} {$time} \"{$reason}\"");
 	}
+
+	public function banTime($playerId, $time, $reason=null)
+	{
+		Base::query("exec admin.banTime {$playerId} {$time} \"{$reason}\"");
+	}
+
+	/**
+	 * Ban a player for a specified timer period from the server with a message.
+	 * 
+	 * @return
+	 */
+	public function banby($playerId, $bannedby, $period, $reason=null)
+	{
+		Base::query("banby {$playerId} {$bannedby} {$period} \"{$reason}\"");
+	}
+
+	/**
+	 * Display the current banlist.
+	 * 
+	 * @return
+	 */
+	public function banlist()
+	{
+		return Base::query("banlist");
+	}
+
+	/**
+	 * Clear the current banlist
+	 * 
+	 * @return
+	 */
+	public function clearBans()
+	{
+		return Base::query("clearbans");
+	}
+
+	/**
+	 * Unban a player with an optional reason.
+	 * 
+	 * @return
+	 */
+	public function unban($soldier_id, $reason=null)
+	{
+		return Base::query("unban {$soldierId} \"{$reason}\"");
+	}
+
+	/**
+	 * Switch player between teams.
+	 * 
+	 * @param  string/int $player Exact soldier name, or player index.
+	 * @return
+	 */
+	public function switchPlayer($player)
+	{
+		return Base::query("exec admin.switchTeamsForPlayer {$player}");
+	}
+
+	/**
+	 * Enables (disable) auto balance.
+	 * 
+	 * @param integer $enabled
+	 * @return
+	 */
+	public function switchAutobalance($enabled = 1)
+	{
+		return Base::query("exec admin.autoBalanceTeam {$enabled}");
+	}
+
+	/**
+	 * Sets number of teamkills to autokick player.
+	 * 
+	 * @param int $value
+	 */
+	public function setNumOfTeamKills($value)
+	{
+		Base::query("exec admin.nrOfTKToKick {$value}");
+	}
+
+	/**
+	 * Sets punish mode for team kills.
+	 * 
+	 * @param int $value
+	 */
+	public function setTKPunishMode($value)
+	{
+		Base::query("exec admin.TKPunishMode {$value}");
+	}
+	
+
+	
+
+	/*** Leftovers to remove ***/
 
 	/**
 	 * Player with name <soldier name> has joined the server
