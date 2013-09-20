@@ -122,11 +122,19 @@ class Players
 	}
 
 	/**
-	 * Prints profileid
+	 * Prints profileid (nucleus_id) of selected player
 	 */
-	public function getProfileId(player_index)
+	public function getProfileId($player_index)
 	{
 		return Base::query("profileid {$player_index}");
+	}
+
+	/**
+	 * Prints ckKeyHash (soldier_id) of selected player
+	 */
+	public function getHash($player_index)
+	{
+		return Base::query("hash {$player_index}");
 	}
 
 	/**
@@ -245,71 +253,5 @@ class Players
 	public function setTKPunishMode($value)
 	{
 		Base::query("exec admin.TKPunishMode {$value}");
-	}
-	
-
-	
-
-	/*** Leftovers to remove ***/
-
-	/**
-	 * Player with name <soldier name> has joined the server
-	 * 
-	 * @param string $soldier_name
-	 */
-	public function onJoin($soldier_name='')
-	{
-		$data = Base::query("player.onJoin {$soldier_name}");
-		return $data;
-	}
-
-	/**
-	 * Player with name <soldier name> has left the server
-	 * 
-	 * @param string $soldier_name
-	 */
-	public function onLeave($soldier_name='')
-	{
-		$data = Base::query("player.onLeave {$soldier_name}");
-		return $data;
-	}
-
-	/**
-	 * Player with name <killing soldier name> has killed <killed soldier name>
-	 * onKill does not specify the weapon used to kill you opponent.
-     * This would be really handle to monitor our ranked servers and immediately identify if there is anything suspicious (stat padding) going on
-     *
-	 * @param string $killing_soldier_name
-	 * @param string $killed_soldier_name
-	 */
-	public function onKill($killing_soldier_name='', $killed_soldier_name)
-	{
-		$data = Base::query("player.onKill {$killing_soldier_name} {$killed_soldier_name}");
-		return $data;
-	}
-
-	/**
-	 * Player with name <killing soldier name> has killed <killed soldier name>
-	 * onChat does not differentiate between Global/Team/Squad chat. 
-	 * It would be  beneficial if you were able to parse this information and therefore handle the chat accordingly
-     	 *
-	 * @param string $soldier_name
-	 * @param string $text
-	 */
-	public function onChat($soldier_name='', $text='')
-	{
-		$data = Base::query("player.onChat {$soldier_name} {$text}");
-		return $data;
-	}
-
-	/**
-	 * The entire message is sent as a raw string. It may contain newlines and whatnot.
-     *
-	 * @param string $message
-	 */
-	public function onMessage($message='')
-	{
-		$data = Base::query("punkBuster.onMessage {$message}");
-		return $data;
 	}
 }

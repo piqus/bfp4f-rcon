@@ -12,7 +12,7 @@
  * @author    Ronny 'roennel' Gysin <roennel@alchemical.cc>
  * @copyright (c) 2012 Ronny Gysin / 2009 Jamie Furness
  * @license   GPL v3 (http://www.gnu.org/licenses/gpl-3.0.html)
- * @version   0.3.1-beta
+ * @version   0.3.4
  */
 
 namespace T4G\BFP4F\Rcon;
@@ -40,7 +40,7 @@ class Chat
 			
 			if(count($ex) < 2) continue;
 			
-			list($index, $origin, , $type, $time, $message) = $ex;
+			list($index, $origin, $team, $type, $time, $message) = $ex;
 			
 			if(!$limit or $limit > count($spl)-$i)
 			{
@@ -48,6 +48,7 @@ class Chat
 				(
 					'origin'	=> 	$origin,
 					'type'    	=>  $type,
+					'team'		=>  $team,
 					'time'    	=>  substr($time, 1, -1),
 					'message' 	=>  $message,
 					'index'   	=>  $index
