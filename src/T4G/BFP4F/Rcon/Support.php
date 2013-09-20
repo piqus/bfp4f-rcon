@@ -295,9 +295,9 @@ class Support
     /**
      * Get Name of Weapon By ID.
      *
-     * @access public
-     * 
      * @param int $weaponId Weapon ID
+     * 
+     * @access public
      * @uses $weapons Collection with weapon IDs, names and required levels
      * 
      * @return string Weapon name
@@ -310,11 +310,10 @@ class Support
     /**
      * Get Required Level to buy this Weapon without unlocking.
      *
-     * @access public
-     * 
      * @param int $weaponId Weapon ID
-     * @uses $weapons Collection with weapon IDs, names and required levels
      * 
+     * @access public
+     * @uses $weapons Collection with weapon IDs, names and required levels
      * @return string Weapon required level
      */
     public function weaponGetReqLvl($weaponId)
@@ -325,11 +324,10 @@ class Support
     /**
      * Parse mode ID to name (GameModeMapStats, GameModeStats).
      *
-     * @access public
-     * 
      * @param int $modeId Mode ID
+     *
+     * @access public
      * @uses $gameModes Collection with mode IDs and names
-     * 
      * @return string Game mode name
      */
     public function modeGetName($modeId)
@@ -340,11 +338,10 @@ class Support
     /**
      * Parse vehicle ID to name (VehicleStats).
      *
-     * @access public
-     * 
      * @param int $vehicleId Vehicle ID
+     *
+     * @access public
      * @uses $vehicles Collection with vehicle IDs and names
-     * 
      * @return string Vehicle name
      */
     public function vehicleGetName($vehicleId)
@@ -355,11 +352,10 @@ class Support
     /**
      * Parse event ID to name (GameEventStats).
      *
-     * @access public
-     * 
      * @param int $eventId Event ID
-     * @uses $events Colection with event IDs and names
-     * 
+     *
+     * @access public
+     * @uses $events Colection with event IDs and names     * 
      * @return string Event name
      */
     public function eventGetName($eventId)
